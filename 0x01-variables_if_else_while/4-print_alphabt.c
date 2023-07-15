@@ -9,7 +9,7 @@ int main(void)
 int lowerCase = 'a';
 while (lowerCase <= 'z')
 {
-if (lowerCase != 'o' && lowerCase != 'q')
+if (lowerCase != 'e' && lowerCase != 'q')
 {
 putchar(lowerCase);
 }
