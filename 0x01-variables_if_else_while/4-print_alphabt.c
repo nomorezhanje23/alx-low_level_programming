@@ -14,7 +14,7 @@ if (lowerCase == 'o' || lowerCase == 'q')
 lowerCase++;
 }
 else
-}
+{
 putchar(lowerCase);
 putchar('\n');
 }
