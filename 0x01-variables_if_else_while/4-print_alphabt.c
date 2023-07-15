@@ -9,16 +9,12 @@ int main(void)
 int lowerCase = 'a';
 while (lowerCase <= 'z')
 {
-if (lowerCase == 'o' || lowerCase == 'q')
-{
-lowerCase++;
-}
-else
+if (lowerCase != 'o' && lowerCase != 'q')
 {
 putchar(lowerCase);
-putchar('\n');
 }
 lowerCase++;
 }
+putchar('\n');
 return (0);
 }
