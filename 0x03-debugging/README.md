@@ -1,1 +1,2 @@
-0x03. C - Debugging
+0x03-debugging
+Crazy topic that I must master
