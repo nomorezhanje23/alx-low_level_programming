@@ -1,5 +1,9 @@
 #include <stdio.h>
 
+/**
+ * main - enrty point
+ * Return: 0 always
+ */
 int main(void)
 {
 int n;
