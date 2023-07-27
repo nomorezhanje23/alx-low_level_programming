@@ -1,8 +1,5 @@
 #include <stdio.h>
-/**
- * main - program that is corrected with onw line of code
- * Return: 0 always.
- */
+
 int main(void)
 {
 int n;
