@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include "main.h"
-/**
- * print_times_table - Prints the times table of the input starting with 0
- * @n: The value of the times table is to be printed
- */
+  /**
+  * print_times_table - Prints the times table of the input starting with 0
+  * @n: The value of the times table is to be printed
+   */
 void print_times_table(int n)
 {
 int i, j, k;
@@ -34,6 +34,7 @@ _putchar(' ');
 _putchar((k / 10) + '0');
 _putchar((k % 10) + '0');
 }
+}
 else if (k >= 100)
 {
 _putchar(',');
@@ -43,7 +44,7 @@ _putchar(((k / 10) % 10) + '0');
 _putchar((k % 10) + '0');
 }
 }
-}
 _putchar('\n');
+}
 }
 }
