@@ -7,44 +7,35 @@
  * @n: value to be added
  * Return: NULL if  unsucessfull or the address of the n_node
  */
-
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-listint_t *n_node = malloc(sizeof(listint_t));
-
-if (n_node == NULL)
-{
+unsigned int a;
+listint_t *nw;
+listint_t *lum = *head;
+nw = malloc(sizeof(listint_t));
+if (!nw || !head)
 return (NULL);
-}
 
-n_node->n = n;
-
+nw->n = n;
+nw->next = NULL;
 if (idx == 0)
 {
-n_node->next = *head;
-*head = n_node;
-return (n_node);
+nw->next = *head;
+*head = nw;
+return (nw);
 }
 
-listint_t *cnt = *head;
-for (unsigned int i = 0; i < idx - 1; i++)
+for (i = 0; lum && a < idx; a++)
 {
-if (cnt == NULL)
+if (a == idx - 1)
 {
-free(n_node);
+nw->next = lum->next;
+lum->next = nw;
+return (nw);
+}
+
+else
+lum = lum->next;
+}
 return (NULL);
-}
-cnt = cnt->next;
-}
-
-if (cnt == NULL)
-{
-free(n_node);
-return (NULL);
-}
-
-n_node->next = cnt->next;
-cnt->next = n_node;
-
-return (n_node);
 }
