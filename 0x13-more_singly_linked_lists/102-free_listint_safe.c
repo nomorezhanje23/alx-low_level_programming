@@ -8,36 +8,36 @@
 
 size_t free_listint_safe(listint_t **h)
 {
-listint_t *slow = *h, *fast = *h;
-size_t count = 0;
+listint_t *sw = *ha, *ft = *ha;
+size_t cnt = 0;
 
-while (fast != NULL && fast->next != NULL)
+while (ft != NULL && ft->next != NULL)
 {
-slow = slow->next;
-fast = fast->next->next;
+sw = sw->next;
+ft = ft->next->next;
 
-if (slow == fast)
+if (sw == ft)
 {
-slow = *h;
-while (slow != fast)
+sw = *ha;
+while (sw != ft)
 {
-slow = slow->next;
-fast = fast->next;
+sw = sw->next;
+ft = ft->next;
 }
-while (fast->next != slow)
+while (ft->next != sw)
 {
-fast = fast->next;
+ft = ft->next;
 }
-fast->next = NULL;
+ft->next = NULL;
 break;
 }
 }
-while (*h != NULL)
+while (*ha != NULL)
 {
-listint_t *temp = *h;
-*h = (*h)->next;
+listint_t *temp = *ha;
+*ha = (*ha)->next;
 free(temp);
-count++;
+cnt++;
 }
-return (count);
+return (cnt);
 }
