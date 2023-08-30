@@ -8,7 +8,7 @@
 
 size_t free_listint_safe(listint_t **h)
 {
-listint_t *sw = *ha, *ft = *ha;
+listint_t *sw = *h, *ft = *h;
 size_t cnt = 0;
 
 while (ft != NULL && ft->next != NULL)
@@ -18,7 +18,7 @@ ft = ft->next->next;
 
 if (sw == ft)
 {
-sw = *ha;
+sw = *h;
 while (sw != ft)
 {
 sw = sw->next;
@@ -32,10 +32,10 @@ ft->next = NULL;
 break;
 }
 }
-while (*ha != NULL)
+while (*h != NULL)
 {
-listint_t *temp = *ha;
-*ha = (*ha)->next;
+listint_t *temp = *h;
+*h = (*h)->next;
 free(temp);
 cnt++;
 }
