@@ -19,3 +19,4 @@ ans >>= 1;
 }
 
 return (cnt);
+}
