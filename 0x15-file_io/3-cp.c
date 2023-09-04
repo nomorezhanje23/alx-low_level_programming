@@ -51,7 +51,7 @@ void close_file(int fd)
  */
 int main(int argc, char *argv[])
 {
-	int pre, nex, red, wy;
+	int from, to, a, b;
 	char *buffer;
 
 	if (argc != 3)
@@ -61,12 +61,12 @@ int main(int argc, char *argv[])
 	}
 
 	buffer = create_buffer(argv[2]);
-	pre = open(argv[1], O_RDONLY);
-	red = read(pre, buffer, 1024);
-	nex = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	from = open(argv[1], O_RDONLY);
+	a = read(from, buffer, 1024);
+	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (pre == -1 || red == -1)
+		if (from == -1 || a == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read from file %s\n", argv[1]);
@@ -74,8 +74,8 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 
-		wy = write(nex, buffer, red);
-		if (nex == -1 || wy == -1)
+		b = write(to, buffer, a);
+		if (to == -1 || b == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't write to %s\n", argv[2]);
@@ -83,14 +83,14 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 
-		red = read(from, buffer, 1024);
-		nex = open(argv[2], O_WRONLY | O_APPEND);
+		a = read(from, buffer, 1024);
+		to = open(argv[2], O_WRONLY | O_APPEND);
 
-	} while (red > 0);
+	} while (a > 0);
 
 	free(buffer);
-	close_file(pre);
-	close_file(nex);
+	close_file(from);
+	close_file(to);
 
 	return (0);
 }
